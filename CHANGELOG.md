@@ -2,6 +2,46 @@
 
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) for commit guidelines.
 
+## [0.46.0](https://github.com/taskany-inc/hire/compare/v0.45.0...v0.46.0) (2024-06-17)
+
+
+### Features
+
+* crew user selector ([184067a](https://github.com/taskany-inc/hire/commit/184067a48d25d5972f1b8aab6d349e36dcdfefb5))
+
+
+### Bug Fixes
+
+* keep monaco files in repo ([fc8ca38](https://github.com/taskany-inc/hire/commit/fc8ca389ab05c65d396e80d5394ee9a4c28f1ec1))
+
+## [0.45.0](https://github.com/taskany-inc/hire/compare/v0.44.0...v0.45.0) (2024-06-13)
+
+
+### Features
+
+* remove specific access checks for solutions ([251a174](https://github.com/taskany-inc/hire/commit/251a17472eeabf32c6f45a23814c3f12d5601020))
+
+## [0.44.0](https://github.com/taskany-inc/hire/compare/v0.43.0...v0.44.0) (2024-06-10)
+
+
+### Features
+
+* admins can see hire streams calendar ([9c41a40](https://github.com/taskany-inc/hire/commit/9c41a40b5f22206f05fcf2a58e408d6e85319da3))
+* calendar for hirestreams ([6cd3eca](https://github.com/taskany-inc/hire/commit/6cd3eca540873dc499c0bda2a73fcbf52c93257f))
+
+
+### Bug Fixes
+
+* **InterviewSectionListItem:** add a section updated date ([d62334e](https://github.com/taskany-inc/hire/commit/d62334e84bba0c67b6f33831c0b58319f218455c))
+
+## [0.43.0](https://github.com/taskany-inc/hire/compare/v0.42.0...v0.43.0) (2024-06-06)
+
+
+### Features
+
+* allow certain users access to interview ([e9fec0b](https://github.com/taskany-inc/hire/commit/e9fec0bc37ca262b2b3b55b041984e8fac6b2275))
+* **InterviewSectionListItem:** join timeline with sections ([d05468a](https://github.com/taskany-inc/hire/commit/d05468ab8a9c0e52a3e95c0782e80b1ca86b1d6d))
+
 ## [0.42.0](https://github.com/taskany-inc/hire/compare/v0.41.0...v0.42.0) (2024-05-23)
 
 

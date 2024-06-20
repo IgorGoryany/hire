@@ -69,6 +69,7 @@ export type UpdateInterviewWithMetadata = z.infer<typeof updateInterviewWithMeta
 export const editInterviewAccessListSchema = z.object({
     interviewId: z.number(),
     userId: z.number(),
+    type: z.enum(['RESTRICT', 'ALLOW']),
     action: z.enum(['ADD', 'DELETE']),
 });
 export type EditInterviewAccessList = z.infer<typeof editInterviewAccessListSchema>;
@@ -87,7 +88,10 @@ export type InterviewWithSections = Interview & {
     sections: Section[];
 };
 
-export type InterviewWithSectionsAndRestrictedUsers = InterviewWithSections & { restrictedUsers?: User[] };
+export type InterviewWithSectionsAndSpecialAccessUsers = InterviewWithSections & {
+    restrictedUsers?: User[];
+    allowedUsers?: User[];
+};
 
 export type InterviewWithHireStreamAndSectionsRelation = InterviewWithSections & {
     hireStream: HireStream | null;
@@ -105,6 +109,10 @@ export type SectionWithSectionTypeAndInterviewerAndSolutionsRelations = Section 
     })[];
 };
 
+export type ActivityFeedItem =
+    | { type: 'section'; value: SectionWithSectionTypeAndInterviewerAndSolutionsRelations }
+    | { type: 'comment'; value: CommentWithUserAndReaction };
+
 export type InterviewWithRelations = InterviewWithHireStreamRelation & {
     creator: User;
     candidate: Candidate;
@@ -112,7 +120,9 @@ export type InterviewWithRelations = InterviewWithHireStreamRelation & {
     candidateSelectedSection: Section | null;
     cv: Attach | null;
     restrictedUsers?: User[];
+    allowedUsers?: User[];
     comments: CommentWithUserAndReaction[] | undefined;
+    activityFeed: ActivityFeedItem[];
 };
 
 export interface InterviewWithCandidateRelation extends Interview, Record<string, unknown> {

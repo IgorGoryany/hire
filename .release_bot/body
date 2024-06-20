@@ -2,10 +2,15 @@
 
 Release type: __minor__. There are 0 BREAKING CHANGES and 1 features.
 
-## [0.42.0](https://github.com/taskany-inc/hire/compare/v0.41.0...v0.42.0) (2024-05-23)
+## [0.46.0](https://github.com/taskany-inc/hire/compare/v0.45.0...v0.46.0) (2024-06-17)
 
 
 ### Features
 
-* **Reactions:** add reactions in comments ([7f23a4e](https://github.com/taskany-inc/hire/commit/7f23a4eeb6e60f0d96cd22003f356554a6b7f3e7))
+* crew user selector ([184067a](https://github.com/taskany-inc/hire/commit/184067a48d25d5972f1b8aab6d349e36dcdfefb5))
+
+
+### Bug Fixes
+
+* keep monaco files in repo ([fc8ca38](https://github.com/taskany-inc/hire/commit/fc8ca389ab05c65d396e80d5394ee9a4c28f1ec1))
 

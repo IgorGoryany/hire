@@ -5,7 +5,14 @@ import { ErrorWithStatus, idObjsToIds } from '../utils';
 import { UserRoles, UserRolesInfo } from '../utils/userRoles';
 import { suggestionsTake } from '../utils/suggestions';
 
-import { AddProblemToFavorites, CreateUser, EditUserSettings, GetUserList, GetUserSuggestions } from './userTypes';
+import {
+    AddProblemToFavorites,
+    CreateUser,
+    EditUserSettings,
+    GetUserByCrewUser,
+    GetUserList,
+    GetUserSuggestions,
+} from './userTypes';
 import { sectionTypeMethods } from './sectionTypeMethods';
 import { tr } from './modules.i18n';
 
@@ -59,6 +66,10 @@ export const constructFindUserListWhereFilter = async (data: GetUserList): Promi
 
     if (data.sectionTypeOrHireStreamId && data.role) {
         where[data.role] = { none: { id: data.sectionTypeOrHireStreamId } };
+    }
+
+    if (data.interviewerInHireStreamId) {
+        where.interviewerInSectionTypes = { some: { hireStreamId: data.interviewerInHireStreamId } };
     }
 
     return where;
@@ -173,6 +184,23 @@ const suggestions = async ({ query, include, take = suggestionsTake, hr, include
     return suggestions;
 };
 
+const getByCrewUser = async (input: GetUserByCrewUser): Promise<User> => {
+    const user = await prisma.user.findFirst({
+        where: {
+            OR: [{ name: input.name }, { email: input.email }, { name: input.login }],
+        },
+    });
+
+    if (user) {
+        if (input.name && user.name !== input.name) {
+            return prisma.user.update({ where: { id: user.id }, data: { name: input.name } });
+        }
+        return user;
+    }
+
+    return create({ name: input.name || input.login || input.email, email: input.email });
+};
+
 export const userMethods = {
     create,
     find,
@@ -187,4 +215,5 @@ export const userMethods = {
     getSettings,
     editSettings,
     suggestions,
+    getByCrewUser,
 };

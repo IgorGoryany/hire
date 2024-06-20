@@ -28,6 +28,7 @@ export const getUserListSchema = z.object({
     limit: z.number().optional(),
     role: roleSchema.optional(),
     sectionTypeOrHireStreamId: z.number().optional(),
+    interviewerInHireStreamId: z.number().optional(),
 });
 
 export type GetUserList = z.infer<typeof getUserListSchema>;
@@ -48,3 +49,11 @@ export const getUserSuggestionsSchema = z.object({
 });
 
 export type GetUserSuggestions = z.infer<typeof getUserSuggestionsSchema>;
+
+export const getUserByCrewUserSchema = z.object({
+    name: z.string().nullish(),
+    login: z.string().nullish(),
+    email: z.string(),
+});
+
+export type GetUserByCrewUser = z.infer<typeof getUserByCrewUserSchema>;
