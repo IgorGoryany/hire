@@ -1,6 +1,6 @@
 import { useHireStreams } from '../../modules/hireStreamsHooks';
 import { QueryResolver } from '../QueryResolver/QueryResolver';
-import { LayoutMain } from '../LayoutMain';
+import { LayoutMain } from '../LayoutMain/LayoutMain';
 import { AnalyticsFilterMenuBar } from '../AnalyticsFilterMenuBar/AnalyticsFilterMenuBar';
 import { HiringFunnel } from '../HiringFunnel/HiringFunnel';
 import { FinishedSectionsByInterviewer } from '../FinishedSectionsByInterviewer/FinishedSectionsByInterviewer';
